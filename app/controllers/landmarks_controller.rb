@@ -29,21 +29,8 @@ class LandmarksController < ApplicationController
   end
 
   patch '/landmarks/:id' do
-    #binding.pry
     @landmark = Landmark.find(params[:id])
-    # @landmark.name = params["landmark"]["name"]
-    # @landmark.year_completed = params["landmark"]["year_completed"]
-    # @landmark.save
     @landmark.update(params[:landmark])
-    #binding.pry
     redirect to "/landmarks/#{@landmark.id}"
   end
-
 end
-
-# [1] pry(#<LandmarksController>)> params
-# => {"_method"=>"PATCH",
-#  "landmark"=>{"name"=>"Madison Square Garden", "year_completed"=>"1901"},
-#  "splat"=>[],
-#  "captures"=>["1"],
-#  "id"=>"1"}

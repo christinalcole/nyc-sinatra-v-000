@@ -51,22 +51,4 @@ class FiguresController < ApplicationController
 
     redirect to "/figures/#{@figure.id}"
   end
-
 end
-
-# pry(#<FiguresController>)> params
-# => {"_method"=>"PATCH",
-#  "figure"=>
-#   {"name"=>"Bill DeBlasio", "title_ids"=>["1"], "landmark_ids"=>["10"]},
-#  "title"=>{"name"=>""},
-#  "landmark"=>{"name"=>""},
-#  "splat"=>[],
-#  "captures"=>["5"],
-#  "id"=>"5"}
-# [2] pry(#<FiguresController>)>
-
-# pry(#<FiguresController>)> params
-# => {"figure"=>{"name"=>"Ivanka", "landmark_ids"=>["1"]},
-# "title"=>{"name"=>"First Lady"},
-# "landmark"=>{"name"=>""}}
-# [2] pry(#<FiguresController>)>
