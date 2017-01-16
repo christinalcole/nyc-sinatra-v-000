@@ -4,7 +4,8 @@ class CreateLandmarks < ActiveRecord::Migration #file provided by Flatiron at st
     create_table :landmarks do |t|
       t.string :name
       t.integer :figure_id
-      t.datetime :year_completed
+      t.integer :year_completed
+      t.timestamps
     end
   end
 end
