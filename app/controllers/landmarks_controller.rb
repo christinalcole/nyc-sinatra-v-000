@@ -22,19 +22,28 @@ class LandmarksController < ApplicationController
     erb :'/landmarks/index'
   end
 
+  get '/landmarks/:id/edit' do
+    @landmark = Landmark.find(params[:id])
 
-  # post '/figures' do
-  #   @figure = Figure.create(params[:figure])
-  #   if !params[:title].empty?
-  #     @figure.titles << Title.create(params[:title])
-  #   end
-  #   if !params[:landmark].empty?
-  #     @figure.landmarks << Landmark.create(params[:landmark])
-  #   end
-  #   @figure.save
-  #   redirect to "/figures/#{@figure.id}"
-  # end
+    erb :'/landmarks/edit'
+  end
+
+  patch '/landmarks/:id' do
+    #binding.pry
+    @landmark = Landmark.find(params[:id])
+    # @landmark.name = params["landmark"]["name"]
+    # @landmark.year_completed = params["landmark"]["year_completed"]
+    # @landmark.save
+    @landmark.update(params[:landmark])
+    #binding.pry
+    redirect to "/landmarks/#{@landmark.id}"
+  end
 
 end
 
-{"landmark"=>{"name"=>"Arc de Triomphe", "year_completed"=>"1806"}}
+# [1] pry(#<LandmarksController>)> params
+# => {"_method"=>"PATCH",
+#  "landmark"=>{"name"=>"Madison Square Garden", "year_completed"=>"1901"},
+#  "splat"=>[],
+#  "captures"=>["1"],
+#  "id"=>"1"}
